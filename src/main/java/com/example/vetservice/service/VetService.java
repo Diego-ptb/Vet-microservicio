@@ -8,7 +8,8 @@ import com.example.vetservice.repository.VetRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
-
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 import java.util.UUID;
 import java.util.stream.Collectors;
@@ -20,6 +21,7 @@ public class VetService {
 
     private final VetRepository vetRepository;
 
+    @Transactional
     public VetResponse createVet(VetRequest request, UUID userId) {
         log.info("Creating new vet for user {}: {}", userId, request.getName());
         validateCoordinates(request.getLatitude(), request.getLongitude());
