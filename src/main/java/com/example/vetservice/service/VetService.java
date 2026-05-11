@@ -162,6 +162,8 @@ public class VetService {
                 vet.getPhone(),
                 vet.getLatitude(),
                 vet.getLongitude(),
-                vet.getImageUrl());
+                vet.getImageUrl(),
+                vet.getCreatedAt(),
+                vet.getUpdatedAt());
     }
 }
